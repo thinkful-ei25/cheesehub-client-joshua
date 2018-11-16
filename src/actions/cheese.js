@@ -19,10 +19,8 @@ export const fetchCheesesError = (err) => ({
 
 export const fetchCheeses = () => (dispatch) => {
   dispatch(fetchCheeseRequest());
-  return (dispatch) => {
-    fetch(`${API_BASE_URL}/api/cheeses`)
+      fetch(`${API_BASE_URL}/api/cheeses`)
       .then(res => res.json())
-      .then(cheeses => dispatch(fetchCheesesSuccess(cheeses)))
+      .then(cheeses => dispatch(fetchCheesesSuccess(cheeses.cheeses)))
       .catch(err => dispatch(fetchCheesesError(err)));
-  };
 };

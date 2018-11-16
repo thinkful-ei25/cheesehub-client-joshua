@@ -1,7 +1,7 @@
 import { FETCH_CHEESES_REQUEST, FETCH_CHEESES_SUCCESS, FETCH_CHEESES_ERROR} from '../actions/cheese';
 
 const initialState = {
-  cheeses: ['Ste. Augere'],
+  cheeses: [],
   loading: false,
   error: null
 }

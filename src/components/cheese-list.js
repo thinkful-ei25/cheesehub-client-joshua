@@ -5,14 +5,15 @@ import { Component } from 'react';
 import { fetchCheeses } from '../actions/cheese';
 import { connect } from "react-redux";
 
-export class CheeseList extends Component {
+class CheeseList extends Component {
   componentDidMount(){
+    // console.log('comonent mounted');
     this.props.dispatch(fetchCheeses());
   }
   render(){
-    const cheesesList = this.props.cheeses.map((cheese) => {
+    const cheesesList = this.props.cheeses.map((cheese, i) => {
       return (
-        <li>{cheese}</li>
+        <li key={i}>{cheese}</li>
       )
     });
     return(
@@ -28,16 +29,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CheeseList);
-// export default function CheeseList() {
-//     let cheeselist = cheeses.map(function(cheese){
-//       return <li>{cheese}</li>;
-//     });
-//     return (
-//       <div>
-//         <ul>
-//           {cheeselist}
-//         </ul>
-//       </div>
-//     )
-  
-// }
